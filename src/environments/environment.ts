@@ -2,8 +2,19 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { FirebaseOptions } from 'firebase/app';
+
 export const environment = {
-  production: false
+  production: false,
+  firebase: <FirebaseOptions>{
+    apiKey: "AIzaSyCDyYmkBOr1OjEojreaM8EUmW0kTbt003I",
+    authDomain: "poker-b3cc1.firebaseapp.com",
+    projectId: "poker-b3cc1",
+    storageBucket: "poker-b3cc1.appspot.com",
+    messagingSenderId: "560704399125",
+    appId: "1:560704399125:web:8ee15331c71ef0e5042b1c",
+    measurementId: "G-NGCJR40Z6Z"
+  }
 };
 
 /*
