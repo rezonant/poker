@@ -12,6 +12,14 @@ import { Router } from '@angular/router';
             <mat-icon>play_arrow</mat-icon>
             Start
         </button>
+
+        <br/>
+        <br/>
+
+        <a mat-button target="_blank" href="https://github.com/rezonant/poker">
+            <img src="/assets/github.svg" />
+            github.com/rezonant/poker
+        </a>
     `,
     styles: [
         `       
