@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "poker-b3cc1": {
+      "hosting": {
+        "poker": [
+          "poker-b3cc1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "poker-b3cc1"
+  }
+}

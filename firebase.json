@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": "dist/poker",
+    "ignore": [
+      "firebase.json"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

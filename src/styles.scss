@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+    margin: 1em; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: #3f50b6;
+    color: white;
+    height: calc(100% - 2em);
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}

@@ -1,0 +1,98 @@
+<ng-container *ngIf="!session">
+    <mat-spinner></mat-spinner>
+</ng-container>
+<ng-container *ngIf="session">
+    <div class="flex-row">
+        <a mat-icon-button routerLink="/">
+            <mat-icon>home</mat-icon>
+        </a>
+
+        <button mat-icon-button (click)="copyUrl()">
+            <mat-icon>link</mat-icon>
+        </button>
+        <div class="flex-spacer"></div>
+        <button mat-icon-button routerLink="/{{sessionID}}">
+            <mat-icon>logout</mat-icon>
+        </button>
+        
+    </div>
+
+    <mat-card>
+        <ng-container *ngIf="!username">
+            <h1>Who are you?</h1>
+            <form (submit)="setUsername(proposedUsername!)" class="signin">
+                <div class="flex-row" style="align-items: baseline;">
+                    <mat-form-field class="flex-spacer" appearance="outline" floatLabel="always">
+                        <mat-label>Name</mat-label>
+                        <input type="text" name="username" matInput [(ngModel)]="proposedUsername" />
+                    </mat-form-field>
+
+                    &nbsp;
+                    <button mat-raised-button color="primary">Sign In</button>
+                </div>
+            </form>
+        </ng-container>
+
+        <ng-container *ngIf="username">
+            <ng-container *ngIf="!session.revealed">
+                <div class="options" *ngIf="!voted && !isPresenter">
+                    <button class="option" mat-raised-button color="primary" *ngFor="let estimate of options" (click)="vote(estimate)">
+                        {{estimate}}
+                    </button>
+                </div>
+
+                <div class="vote" *ngFor="let vote of votes">
+                    <div class="username">
+                    {{vote.username}}
+                    </div>
+                    <div class="estimate">
+                        <mat-icon *ngIf="vote.estimate">done</mat-icon>
+                        <mat-icon *ngIf="!vote.estimate">pending</mat-icon>
+                    </div>
+                    <button mat-icon-button (click)="remove(vote.username)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+
+                </div>
+
+                <br/><br/>
+                
+                <div class="flex-row">
+                    <button mat-button *ngIf="voted" (click)="vote(0)">
+                        Change vote
+                    </button>
+
+                    <div class="flex-spacer"></div>
+                    <button mat-raised-button color="primary" (click)="reveal()">
+                        <mat-icon>done</mat-icon>
+                        Reveal
+                    </button>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="session.revealed">
+                <div class="vote" *ngFor="let vote of votes">
+                    <div class="username">
+                    {{vote.username}}
+                    </div>
+                    <div class="estimate">
+                        {{vote.estimate ? vote.estimate : '--'}}
+                    </div>
+                </div>
+
+                <br/><br/>
+                <div class="flex-row">
+                    <div class="flex-spacer"></div>
+                    <button mat-raised-button color="primary" (click)="reset()">
+                        <mat-icon>restart_alt</mat-icon>
+                        New Vote
+                    </button>
+                </div>
+            </ng-container>
+        </ng-container>
+    </mat-card>
+
+    <div class="flex-row">
+        <div class="flex-spacer"></div>
+        <button mat-button (click)="setUsername('presenter')">Presenter</button>
+    </div>
+</ng-container>
