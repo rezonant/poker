@@ -15,9 +15,10 @@ import { Router } from '@angular/router';
 
         <br/>
         <br/>
+        <br/>
 
         <a mat-button target="_blank" href="https://github.com/rezonant/poker">
-            <img src="/assets/github.svg" />
+            <img src="/assets/github.svg" style="height: 1.5em; margin-right: 0.25em;" />
             github.com/rezonant/poker
         </a>
     `,
